@@ -3,47 +3,48 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
-# Initialize OpenAI API client:
 cliente = OpenAI(api_key=os.getenv("OPENAI_API_KEY_2"))
-modelo  = "gpt-4o-mini"
-prompt_sistema = f"""
-        Eres un categorizador de productos.
-        Debes asumir las categorías presentes en la lista a continuación.
+modelo = "gpt-4o-mini"
 
-        # Lista de Categorías Válidas
+def categoriza_producto(nombre_producto, lista_categorias_posibles):
+    prompt_sistema = f"""
+        Eres un categorizador de productos.
+        Debes asumir las categorías presentes en la lista a continuación:
+
+        # Lista de Categorías Válidas:
         {lista_categorias_posibles.split(",")}
 
-        # Formato de Salida
-        Producto: Nombre del Producto
-        Categoría: presenta la categoría del producto
+        # Formato de Salida:
+        Producto: Nombre del Producto.
+        Categoría: Presenta la categoría del producto.
 
-        # Ejemplo de Salida
-        Producto: Cepillo eléctrico con recarga solar
-        Categoría: Electrónicos Verdes
-
+        # Ejemplo de Salida:
+        Producto: Cepillo eléctrico con recarga solar.
+        Categoría: Electrónicos Verdes.
     """
 
-respuesta = cliente.chat.completions.create(
-    messages=[
-    {
-        "role": "system",
-        "content": """
-        Clasifica el producto a continuación en una de las siguientes categorías:
-        1. Higiene personal
-        2. Moda
-        3. Casa
-        Además, crea una descripción de la categoría.
-        """
-    },
-    {
-        "role": "user",
-        "content": "Cepillo de dientes de bambú"
-    }
-    ],
-    model=modelo,
-    temperature=1,
-    max_tokens=200
+    respuesta = cliente.chat.completions.create(
+        messages=[
+            {
+                "role":"system",
+                "content" : prompt_sistema
+            },
+            {
+                "role" : "user",
+                "content" : nombre_producto
+            }
+
+        ],
+        model=modelo,
+        temperature = 1,
+        max_tokens=200
     )
 
-print(respuesta.choices[0].message.content)
+    return respuesta.choices[0].message.content
+
+categorias_validas = input("Informa las categorías válidas, separando por comas: ")
+
+while True:
+    nombre_producto = input("Escribe el nombre del producto: ")
+    texto_respuesta = categoriza_producto(nombre_producto, categorias_validas)
+    print(texto_respuesta)
