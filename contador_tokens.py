@@ -1,19 +1,41 @@
 import tiktoken
 
-modelo = "gpt-4o-mini"
-codificador = tiktoken.encoding_for_model(modelo)
-lista_tokens = codificador.encode("Eres un categorizador de productos.")
-
-print("Lista de Tokens: ", lista_tokens)
-print("¿Cuántos tokens tenemos?: ", len(lista_tokens))
-print(f"Costo para el modelo {modelo} es de ${(len(lista_tokens)/1000000) * 0.15}")
-
 modelo = "gpt-4o"
 codificador = tiktoken.encoding_for_model(modelo)
-lista_tokens = codificador.encode("Eres un categorizador de productos.")
+lista_tokens = codificador.encode(
+"""
+Eres un categorizador de productos.
+Debes asumir las categorías presentes en la lista a continuación.
 
-print("Lista de Tokens: ", lista_tokens)
-print("¿Cuántos tokens tenemos?: ", len(lista_tokens))
-print(f"Costo para el modelo {modelo} es de ${(len(lista_tokens)/1000000) * 2.50}")
+# Lista de Categorías Válidas:
+1. Cat. 1
+2. Cat. 2
+3. Cat. 3
 
-print(f"El costo del GPT-4o es de {2.5/0.15} mayor que el del GPT-4o-mini")
+# Formato de Salida:
+Producto: Nombre del Producto
+Categoría: presenta la categoría del producto
+
+# Ejemplo de Salida:
+Producto: Cepillo de dientes con carga solar
+Categoría: Electrónicos Verdes
+"""
+)
+
+
+print("modelo:", modelo)
+print("lista tokens:", lista_tokens)
+print("Número de tokens:", len(lista_tokens))
+print(f"Costo para el modelo: {modelo} es de {(2.5*len(lista_tokens)/1_000_000)}")
+
+print("\n")
+
+modelo = "gpt-4o-mini"
+print("modelo:", modelo)
+print("lista tokens:", lista_tokens)
+print("Número de tokens:", len(lista_tokens))
+print(f"Costo para el modelo: {modelo} es de {(0.15*len(lista_tokens)/1_000_000)}")
+
+print("\n")
+
+print(f"El costo del gpt-4o es mayor en {2.5/0.15} que el gpt-4o-mini")
