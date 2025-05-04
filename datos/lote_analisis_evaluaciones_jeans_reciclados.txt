@@ -1,0 +1,15 @@
+- Nombre del Producto: Jeans Reciclados
+- Resumen de las Reseñas: Los jeans reciclados han sorprendido positivamente a los usuarios, destacando su
+comodidad, estilo y calidad. La atención al detalle y el enfoque eco-amigable
+son especialmente apreciados, aunque hay sugerencias para mejorar la
+flexibilidad y ofrecer más modelos. En general, los compradores están muy
+satisfechos.
+- Sentimiento General: Positivo
+- Puntos fuertes:
+  1. Comodidad y ajuste perfecto.
+  2. Alta calidad en materiales y atención a los detalles.
+  3. Enfoque en sostenibilidad y moda eco-amigable.
+- Puntos débiles:
+  1. Necesidad de mejorar la flexibilidad del material.
+  2. Solicitud de más opciones de modelos y estilos.
+  3. Textura diferente a la de los jeans tradicionales.
