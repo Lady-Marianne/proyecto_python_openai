@@ -1,0 +1,10 @@
+**Recomendación Técnica:**
+
+1. **Notificar Cliente**: Se sugiere informar al cliente sobre la transacción identificada como posible fraude, proporcionando detalles sobre el monto y el horario de la compra. Esto permitirá al cliente verificar si realmente realizó la transacción o si su información ha sido comprometida.
+
+2. **Activar sector Anti-Fraude**: Dada la naturaleza sospechosa de la transacción, se recomienda activar los protocolos del sector anti-fraude para monitorear cualquier actividad adicional relacionada con la cuenta del cliente y prevenir posibles pérdidas.
+
+3. **Realizar Verificación Manual**: Se aconseja llevar a cabo una verificación manual de la transacción, revisando los registros de compra del establecimiento "Deporte C" y comparando con el comportamiento habitual del cliente. Esto ayudará a determinar la legitimidad de la transacción.
+
+**Clasificación del Tipo de Fraude**: 
+- **Fraude por Uso No Autorizado**: La transacción presenta características que sugieren un posible uso no autorizado de la cuenta del cliente, dado el horario inusual y el monto elevado en relación con el tipo de establecimiento.
